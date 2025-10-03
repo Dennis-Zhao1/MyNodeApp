@@ -23,3 +23,15 @@ App Runner ← Auto Deploy ← ECR
     ▼
 Custom Domain (www.dennis-zhao.click)
 
+
+
+Node.js Auto Deployment Platform | GitHub / AWS App Runner / ECR / CodeBuild
+
+Built a Node.js application with Docker and deployed it on AWS App Runner using a custom domain.
+
+Configured ECR and App Runner for automatic deployment upon image updates.
+
+Integrated GitHub and CodeBuild to create a CI/CD pipeline that builds Docker images and updates App Runner seamlessly.
+
+Implemented custom domain mapping and HTTPS via App Runner.
+
