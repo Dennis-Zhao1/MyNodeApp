@@ -1,0 +1,13 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo 'Starting deployment...'
+      - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 834826793883.dkr.ecr.us-east-2.amazonaws.com
+  build:
+    commands:
+      - docker build -t 834826793883.dkr.ecr.us-east-2.amazonaws.com/my-node-app:latest .
+      - docker push 834826793883.dkr.ecr.us-east-2.amazonaws.com/my-node-app:latest
+  post_build:
+    commands:
+      - docker image rm 834826793883.dkr.ecr.us-east-2.amazonaws.com/my-node-app:latest

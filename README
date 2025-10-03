@@ -1,0 +1,25 @@
+## 🚀 Deployment Architecture
+
+This Node.js app is deployed on **AWS App Runner** using a custom **Docker image** stored in **Amazon ECR**.
+
+### 🧱 Architecture
+1. The Node app is containerized with Docker and pushed to **ECR**.
+2. AWS **App Runner** is configured to automatically deploy whenever a new image is pushed to ECR.
+3. A **custom domain** (`www.example.com`) is mapped to the App Runner service for production traffic.
+4. **GitHub + AWS CodeBuild** handles CI/CD:
+   - When code is pushed to the `main` branch, CodeBuild automatically builds a new Docker image and pushes it to ECR.
+   - App Runner automatically deploys the new image without manual intervention.
+
+![Architecture Diagram]
+
+GitHub Push
+    │
+    ▼
+CodeBuild → Build Docker Image → Push to ECR
+    │
+    ▼
+App Runner ← Auto Deploy ← ECR
+    │
+    ▼
+Custom Domain (www.dennis-zhao.click)
+
